@@ -1,0 +1,11 @@
+---
+- name: "ensure nginx site configuration is installed"
+  template:
+    src: nginx-vhost.conf.j2
+    dest: /etc/nginx/sites-available/symfony2-app.conf
+
+- name: "ensure nginx site configuration is enabled"
+  file:
+    src: /etc/nginx/sites-available/symfony2-app.conf
+    dest: /etc/nginx/sites-enabled/symfony2-app.conf
+    state: link

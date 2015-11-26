@@ -1,0 +1,5 @@
+---
+- name: "run composer install"
+  command: composer install --ignore-platform-reqs
+  args:
+    chdir: "{{ symfony2_project_root }}"
