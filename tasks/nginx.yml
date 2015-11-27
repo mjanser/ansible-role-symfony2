@@ -11,3 +11,4 @@
     dest: /etc/nginx/sites-enabled/symfony2-app.conf
     state: link
   sudo: yes
+  notify: "restart web server"
