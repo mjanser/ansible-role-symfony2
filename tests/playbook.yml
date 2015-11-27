@@ -38,5 +38,6 @@
     - ansible-role-symfony2
 
   vars:
-    symfony2_doctrine_schema_update:
+    - symfony2_php_fpm_socket: unix:/var/run/php5-fpm.sock
+    - symfony2_doctrine_schema_update:
       - { env: dev, em: default }
