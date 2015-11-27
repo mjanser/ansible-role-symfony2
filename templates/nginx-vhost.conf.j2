@@ -30,4 +30,6 @@ server {
         fastcgi_param  SCRIPT_FILENAME  $realpath_root$fastcgi_script_name;
         fastcgi_param DOCUMENT_ROOT $realpath_root;
     }
+
+    include /etc/nginx/global.d/*.conf;
 }

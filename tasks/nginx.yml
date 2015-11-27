@@ -1,4 +1,10 @@
 ---
+- name: "ensure directory for global nginx configuration files exists"
+  file:
+    path: /etc/nginx/global.d
+    state: directory
+  sudo: yes
+
 - name: "ensure nginx site configuration is installed"
   template:
     src: nginx-vhost.conf.j2
