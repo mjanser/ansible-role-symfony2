@@ -3,4 +3,4 @@
   get_url:
     url: https://raw.githubusercontent.com/KnpLabs/symfony2-autocomplete/master/symfony2-autocomplete.bash
     dest: /etc/bash_completion.d/symfony2
-  sudo: yes
+  become: yes

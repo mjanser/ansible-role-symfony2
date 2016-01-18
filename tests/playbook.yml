@@ -3,24 +3,24 @@
 
   pre_tasks:
     - apt: "name={{ item }}"
-      sudo: yes
+      become: yes
       with_items: [ nginx, php5-cli, php5-fpm, php5-mysql, mysql-server ]
     - file: path=/etc/nginx/sites.enabled/default state=absent
-      sudo: yes
+      become: yes
     - service: name=mysql state=running
-      sudo: yes
+      become: yes
     - command: mysqladmin create symfony creates=/var/lib/mysql/symfony
-      sudo: yes
+      become: yes
     - get_url: url=https://getcomposer.org/installer dest=/tmp/composer-installer.php mode=0755
-      sudo: yes
+      become: yes
     - command: php composer-installer.php --install-dir=/usr/local/bin --filename=composer chdir=/tmp creates=/usr/local/bin/composer
-      sudo: yes
+      become: yes
     - get_url: url=http://symfony.com/installer dest=/usr/local/bin/symfony mode=0755
-      sudo: yes
+      become: yes
     - command: symfony new www lts chdir=/var creates=/var/www/app/AppKernel.php
-      sudo: yes
+      become: yes
     - file: path=/var/www/src/AppBundle/Resources/config/doctrine state=directory
-      sudo: yes
+      become: yes
     - copy:
         dest: /var/www/src/AppBundle/Resources/config/doctrine/Product.orm.yml
         content: |
@@ -30,9 +30,9 @@
               id:
                   id:
                       type: integer
-      sudo: yes
+      become: yes
     - command: app/console doctrine:generate:entities --path=src AppBundle/Entity chdir=/var/www creates=/var/www/src/AppBundle/Entity/Product.php
-      sudo: yes
+      become: yes
 
   roles:
     - ansible-role-symfony2
