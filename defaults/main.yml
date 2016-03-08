@@ -1,7 +1,7 @@
 ---
 symfony2_project_root: /var/www
 symfony2_web_server: nginx
-symfony2_php_fpm_socket: localhost:9000
+symfony2_php_fpm_socket: php-fpm
 
 symfony2_bash_completion: true
 
