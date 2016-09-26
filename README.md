@@ -2,6 +2,8 @@
 
 An Ansible role that can configure a Symfony 2 application.
 
+**Warning**: This role is not maintained anymore!
+
 ## Requirements
 
 For the configuration with nginx the directories for sites must already exist (e.g. nginx has to be installed).
